@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c43c73f0-b719-454d-a812-20957bd01b84</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Pythontest.py</StartupFile>
+    <StartupFile>module2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="module2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Pythontest.py" />
