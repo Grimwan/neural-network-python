@@ -1,5 +1,7 @@
 import tensorflow as tf
+
 print("hello world")
+
 mnist = tf.keras.datasets.mnist
 
 #extract the image data into xtrain and y train and x test and y test
@@ -34,7 +36,7 @@ model.compile(optimizer='adam',loss='sparse_categorical_crossentropy', metrics=[
 model.fit(x_train,y_train, epochs = 3)
 val_loss, val_acc = model.evaluate(x_test,y_test)
 print(val_loss, val_acc)
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 #print(x_train[0])
 #plt.imshow(x_train[0])
 #plt.show()
