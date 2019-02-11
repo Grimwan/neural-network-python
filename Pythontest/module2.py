@@ -19,15 +19,40 @@ def create_training_data():
         for img in os.listdir(path):
             try:
                 imgTraining_array = cv2.imread(os.path.join(path,img), cv2.IMREAD_COLOR)
-        #        newTraining_array = cv2.resize(imgTraining_array, (50,50))
+                newTraining_array = cv2.resize(imgTraining_array, (20,20))
                 imgResult_array = cv2.imread(os.path.join(secondPath,newImg[i]),cv2.IMREAD_COLOR)
                 #imgResult_array = cv2.imread(os.path.join(secondPath,os.listdir(secondPath))[img.index],cv2.IMREAD_COLOR)
-         #       newResult_array = cv2.resize(imgResult_array, (50,50))
-                training_data.append([imgTraining_array,imgResult_array])
+                newResult_array = cv2.resize(imgResult_array, (20,20))  # 406,514
+                training_data.append([newTraining_array,newResult_array])
                 i= i+1
             except Exception as e:
                 pass
 
 create_training_data()
-plt.imshow(training_data[0][1], cmap="gray")
-plt.show()
+import random
+random.shuffle(training_data)
+
+x = [] #trainingdata
+y = [] #labels
+for features, label in training_data:
+    x.append(features)
+    y.append(label)
+
+print(x[0].shape)
+
+
+x = np.array(x).reshape(-1,20,20,3)
+y = np.array(y).reshape(-1,20,20,3)
+import pickle 
+
+pickle_out = open("x.TotalTrainingData","wb")
+pickle.dump(x,pickle_out)
+pickle_out.close()
+
+pickle_out = open("y.TotalTrainingData","wb")
+pickle.dump(y,pickle_out)
+pickle_out.close()
+
+
+#plt.imshow(training_data[0][1], cmap="gray")
+#plt.show()
