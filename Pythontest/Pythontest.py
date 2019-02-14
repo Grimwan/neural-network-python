@@ -7,6 +7,7 @@ mnist = tf.keras.datasets.mnist
 #extract the image data into xtrain and y train and x test and y test
 (x_train, y_train), (x_test, y_test) = mnist.load_data() # 28x28 images of hand written digits 0-9
 
+print(y_train.shape)
 #normalising the values for the nn to train faster
 x_train = tf.keras.utils.normalize(x_train, axis=1) # makes it between 0-1 easier to learn for network
 x_test = tf.keras.utils.normalize(x_test, axis=1)
