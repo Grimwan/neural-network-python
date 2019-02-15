@@ -23,11 +23,10 @@ def build_model():
     model = tf.keras.models.Sequential() # feed forward one of two
     #model.add(tf.keras.layers.Flatten()) # flattens a mutli array in to single array from 3d to 1d basically
     #First hidden layer
-    model.add(tf.keras.layers.Dense(1228, activation = tf.nn.relu, input_shape=(1200,))) # tf.nn.relu = a kind of activation like sigmoid function
+    model.add(tf.keras.layers.Dense(3228, activation = tf.nn.relu, input_shape=(1200,))) # tf.nn.relu = a kind of activation like sigmoid function
     #second hidden layer 
-    model.add(tf.keras.layers.Dense(1228, activation = tf.nn.relu))
-    model.add(tf.keras.layers.Dense(1228, activation = tf.nn.relu))
-    model.add(tf.keras.layers.Dense(1200, activation = tf.nn.relu))
+    model.add(tf.keras.layers.Dense(3228, activation = tf.nn.relu))
+    model.add(tf.keras.layers.Dense(3228, activation = tf.nn.relu))
     #output layer of neural network
     model.add(tf.keras.layers.Dense(1200, activation = tf.nn.sigmoid)) 
     #nn done set up 
@@ -76,7 +75,7 @@ def KfoldValidation(train_data,train_targets,k,num_epochs):
 #print(Accuracy)
 #print(np.mean(Accuracy))
 model = build_model()
-model.fit(x_train,y_train, epochs = 3)
+model.fit(x_train,y_train, epochs = 50000)
 ynew = model.predict(x_train[2:3])
 
 x_train = x_train.astype('float32') * 255
